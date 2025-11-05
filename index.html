@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Cultura — Tienda</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="productos.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <!-- HEADER -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Cultura</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#productos">Ofertas</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Colecciones
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="productos.html">Hombre</a></li>
+            <li><a class="dropdown-item" href="productos.html">Mujer</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+  <!-- HERO -->
+<div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/rop-mujer (2).jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="font-size: 3rem; line-height: 1;">Ofertas <span style=" color: #bbdbf7; text-shadow: none;">exclusivas</span> <br>
+          para vos</h5>
+        <p>Ciber monday en indumentaria femenina, ofertas exclusivas</p>
+        <a href="productos.html"><button type="button" class="btn btn-primary">Comprar</button></a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/backkropa (3).jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="font-size: 3rem; line-height: 1;">Ciber <span style=" color: #bbdbf7; text-shadow: none;">monday</span> <br>
+          para vos</h5>
+        <p>Ciber monday en indumentaria masculina, ofertas exclusivas</p>
+        <a href="productos.html"><button type="button" class="btn btn-primary">Comprar</button></a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/pexels-pixabay-325876.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="font-size: 3rem; line-height: 1;">Ciber <span style=" color: #bbdbf7; text-shadow: none;">monday</span> <br>
+          exclusivo</h5>
+        <p>Ciber monday en toda nuestra tienda, ciber monday & ofertas exclusivas</p>
+        <a href="productos.html"><button type="button" class="btn btn-primary">Comprar</button></a>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+  <!-- PRODUCTOS DESTACADOS -->
+  <main>
+    <section id="productos" class="productos container section">
+      <h2>Productos destacados</h2>
+      <div id="productos-grid" class="grid productos-grid">
+        <!-- Productos renderizados por JS -->
+      </div>
+    </section>
+
+    <!-- COLECCIONES -->
+    <section class="colecciones container section">
+      <h2>Colecciones</h2>
+      <div class="colecciones-grid">
+        <article class="coleccion-card" style="background-image:url('assets/backkropa\ \(3\).jpg')">
+          <div class="overlay"><h3>Urbano</h3><a href="productos.html" class="btn btn-outline">Ver colección</a></div>
+        </article>
+
+        <article class="coleccion-card" style="background-image:url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=60')">
+          <div class="overlay"><h3>Casual</h3><a href="productos.html" class="btn btn-outline">Ver colección</a></div>
+        </article>
+
+        <article class="coleccion-card" style="background-image:url('assets/rop-mujer\ \(2\).jpg')">
+          <div class="overlay"><h3>Minimal</h3><a href="productos.html" class="btn btn-outline">Ver colección</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SOBRE LA MARCA -->
+    <section class="sobre container section about-grid">
+      <div class="about-text">
+        <h2>Sobre <span style="font-weight: 900; color: #6693c2;">Cultura</span></h2>
+        <p>En Cultura creemos en la autenticidad, la moda consciente y en prendas que conecten con la identidad personal. Nuestra misión es ofrecer piezas atemporales, con diseño y responsabilidad.</p>
+      </div>
+      <div class="about-media">
+        <img src="assets/pexels-pixabay-325876.jpg" alt="Proceso de diseño" />
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>Cultura</h4>
+        <p>Autenticidad, diseño consciente y estilo atemporal.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="#">Términos</a></li>
+          <li><a href="#">Envíos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Devoluciones</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Síguenos</h4>
+        <div class="socials"> 
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Twitter">TW</a>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright">
+      <small>© <span id="year"></span> Cultura — Todos los derechos reservados</small>
+    </div>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

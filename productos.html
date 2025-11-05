@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Productos — Cultura</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="productos.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <!-- NAV -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Cultura</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Ofertas</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Colecciones
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="productos.html">Hombre</a></li>
+            <li><a class="dropdown-item" href="productos.html">Mujer</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="search-input"/>
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
+    </div>
+    <button id="cart-btn" class="btn btn-outline-primary position-relative" style="margin-left: 10px;">🛒
+    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+    </button>
+  </div>
+</nav>
+
+ <!-- BANNER -->
+  <section class="banner" style="background: linear-gradient(to right, #4f6a88, #374b61); color: white;">
+    <div class="container text-center">
+      <h1 class="txt-1">Nuestra Colección</h1>
+      <p>Explorá la moda de Cultura y encontrá tu estilo.</p>
+    </div>
+  </section>
+
+  <!-- FILTROS -->
+  <section class="container py-4">
+    <div class="row g-3 align-items-end">
+      <div class="col-md-3">
+        <label class="form-label fw-semibold">Género</label>
+        <select id="filtro-genero" class="form-select">
+          <option value="todos">Todos</option>
+          <option value="hombre">Hombre</option>
+          <option value="mujer">Mujer</option>
+          <option value="unisex">Unisex</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label fw-semibold">Tipo de vestimenta</label>
+        <select id="filtro-tipo" class="form-select">
+          <option value="todos">Todos</option>
+          <option value="remera">Remeras</option>
+          <option value="campera">Camperas</option>
+          <option value="pantalon">Pantalones</option>
+          <option value="accesorio">Accesorios</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label fw-semibold">Precio máximo</label>
+        <input id="filtro-precio" type="range" class="form-range" min="100" max="100000" step="5" value="100000">
+        <div id="precio-valor" class="small text-muted">Hasta $100.000</div>
+      </div>
+
+      <div class="col-md-3 text-end">
+        <button id="btn-limpiar" class="btn btn-secondary">Limpiar filtros</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <main class="container section">
+    <div id="productos-grid" class="grid productos-grid"></div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>Cultura</h4>
+        <p>Autenticidad, diseño consciente y estilo atemporal.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="#">Términos</a></li>
+          <li><a href="#">Envíos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Devoluciones</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Síguenos</h4>
+        <div class="socials"> 
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Twitter">TW</a>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright">
+      <small>© <span id="year"></span> Cultura — Todos los derechos reservados</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Referencias
+  const grid = document.getElementById("productos-grid");
+  const genero = document.getElementById("filtro-genero");
+  const tipo = document.getElementById("filtro-tipo");
+  const precio = document.getElementById("filtro-precio");
+  const precioValor = document.getElementById("precio-valor");
+  const limpiar = document.getElementById("btn-limpiar");
+  const searchInput = document.getElementById("search-input");
+
+  console.log({
+  grid,
+  genero,
+  tipo,
+  precio,
+  precioValor,
+  limpiar,
+  searchInput
+});
+
+  // Si alguno de estos no existe, detenemos la ejecución para evitar errores
+  if (!grid || !genero || !tipo || !precio || !precioValor || !limpiar || !searchInput) {
+    console.error("Algunos elementos del DOM no fueron encontrados. Verifica los IDs.");
+    return;
+  }
+
+  // Productos cargados globalmente desde app.js
+  const productos = window.productos || [];
+
+  // Función para renderizar
+  function renderProductos(list) {
+    grid.innerHTML = "";
+    list.forEach((p, i) => {
+      const card = document.createElement("article");
+      card.className = "card fade-in";
+      card.style.animationDelay = `${i * 80}ms`;
+      card.innerHTML = `
+        <img src="${p.img}" alt="${p.nombre}">
+        <h3>${p.nombre}</h3>
+        <p class="price">$${p.precio.toFixed(2)}</p>
+        <div class="card-actions">
+          <button class="btn-sm add-cart" data-id="${p.id}">Agregar al carrito</button>
+          <button class="btn-sm">Ver</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // Función de filtros
+  function aplicarFiltros() {
+    const gen = genero.value;
+    const tip = tipo.value;
+    const max = parseInt(precio.value);
+    const busqueda = searchInput.value.trim().toLowerCase();
+
+    const filtrados = productos.filter(p => {
+      const matchGenero = gen === "todos" || p.genero === gen;
+      const matchTipo = tip === "todos" || p.tipo === tip;
+      const matchPrecio = p.precio <= max;
+      const matchTexto = !busqueda || p.nombre.toLowerCase().includes(busqueda);
+      return matchGenero && matchTipo && matchPrecio && matchTexto;
+    });
+
+    renderProductos(filtrados);
+  }
+
+  // Eventos (solo si existen)
+  genero.addEventListener("change", aplicarFiltros);
+  tipo.addEventListener("change", aplicarFiltros);
+  precio.addEventListener("input", () => {
+    precioValor.textContent = `Hasta $${precio.value}`;
+    aplicarFiltros();
+  });
+  searchInput.addEventListener("input", aplicarFiltros);
+  limpiar.addEventListener("click", () => {
+    genero.value = "todos";
+    tipo.value = "todos";
+    precio.value = 100;
+    searchInput.value = "";
+    precioValor.textContent = "Hasta $100";
+    aplicarFiltros();
+  });
+
+  // Render inicial
+  aplicarFiltros();
+});
+</script>
+
+</body>
+</html>

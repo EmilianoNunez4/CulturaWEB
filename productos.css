@@ -1,0 +1,67 @@
+.txt-1{
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+/* Animación al renderizar productos */
+.fade-in {
+  opacity: 0;
+  transform: scale(0.97);
+  animation: fadeInScale 0.4s ease forwards;
+}
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Ajuste del modal de producto */
+#productModal .modal-dialog {
+  max-width: 800px;
+}
+
+#productModal .modal-body img {
+  max-height: 500px;
+  max-width: 350px;
+  object-fit: cover;
+}
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* === Etiqueta de OFERTA === */
+.card-img-container {
+  position: relative;
+}
+
+.badge-oferta {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(to right, #0a1e90, #01137c);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  animation: ofertaPulse 1.5s infinite alternate ease-in-out;
+}
+
+/* Animación suave */
+@keyframes ofertaPulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.1); opacity: 0.9; }
+}
+
+/* Precio tachado */
+.precio-tachado {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.9rem;
+  margin-right: 6px;
+}
