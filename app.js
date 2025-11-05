@@ -8,8 +8,8 @@ window.productos = [
       "assets/camperaM.webp",
     ] },
   { id: 3, nombre: "Remera cultura", precio: 45000, genero: "hombre", oferta: 20, tipo: "remera", img: "assets/remera.webp", imagenes: [
-      "assets/sweter.webp",
-      "assets/sweater.webp",
+      "assets/remera.webp",
+      "assets/remeraV.webp",
     ]},
   { id: 4, nombre: "Skinny jean", precio: 40000, genero: "unisex", tipo: "pantalon", img: "assets/pantalonuni.webp", imagenes: [
       "assets/pantalonuni.webp",
